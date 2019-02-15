@@ -12,7 +12,7 @@ parser.add_argument("-e", help = "Action executed such as status, create, delete
 parser.add_argument("-n", help = "Action executed such as status, create, delete, etc")
 args = parser.parse_args()
 
-es = Elasticsearch(host = "10.164.5.117", port = "9200")
+es = Elasticsearch(host = args.H, port = args.P)
 
 def create(api, param):
   res = api.create(index = param)
