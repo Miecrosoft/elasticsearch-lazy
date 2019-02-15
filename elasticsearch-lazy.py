@@ -7,9 +7,9 @@ obj = object
 parser = argparse.ArgumentParser()
 parser.add_argument("-H", help = "HOST localhost as default", default="localhost")
 parser.add_argument("-P", help = "PORT 9200 as default", default="9200")
-parser.add_argument("-a", help = "Action executed such as status, create, delete, etc")
+parser.add_argument("-a", help = "Action executed such as indices, cluster, etc")
 parser.add_argument("-e", help = "Action executed such as status, create, delete, etc")
-parser.add_argument("-n", help = "Action executed such as status, create, delete, etc")
+parser.add_argument("-n", help = "Name")
 args = parser.parse_args()
 
 es = Elasticsearch(host = args.H, port = args.P)
