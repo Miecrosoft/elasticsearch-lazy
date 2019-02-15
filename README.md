@@ -1,1 +1,1 @@
-# elasticsearch-lazy
+# Elasticsearch Lazy
