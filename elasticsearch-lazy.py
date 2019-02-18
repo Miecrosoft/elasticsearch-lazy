@@ -14,18 +14,42 @@ args = parser.parse_args()
 
 es = Elasticsearch(host = args.H, port = args.P)
 
+def close(api, param):
+  res = api.close(index = param)
+  print(json.dumps(res, indent = 2, sort_keys = False))
+
 def create(api, param):
   res = api.create(index = param)
   print(json.dumps(res, indent = 2, sort_keys = False))
 
 def delete(api, param):
-  res = api.delete(index=param)
+  res = api.delete(index = param)
+  print(json.dumps(res, indent = 2, sort_keys = False))
+
+def flush(api, param):
+  res = api.flush(index = param)
+  print(json.dumps(res, indent = 2, sort_keys = False))
+
+def open(api, param):
+  res = api.open(index = param)
+  print(json.dumps(res, indent = 2, sort_keys = False))
+
+def stats(api, param):
+  res = api.stats(index = param)
   print(json.dumps(res, indent = 2, sort_keys = False))
 
 if args.a == "indices":
   obj = es.indices
 
-if args.e == "create":
+if args.e == "close":
+  close(obj, args.n)
+elif args.e == "create":
   create(obj, args.n)
 elif args.e == "delete":
   delete(obj, args.n)
+elif args.e == "flush":
+  flush(obj, args.n)
+elif args.e == "open":
+  open(obj, args.n)
+elif args.e == "stats":
+  stats(obj, args.n)
