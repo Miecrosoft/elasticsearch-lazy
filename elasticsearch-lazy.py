@@ -30,6 +30,14 @@ def flush(api, param):
   res = api.flush(index = param)
   print(json.dumps(res, indent = 2, sort_keys = False))
 
+def get_mapping(api, param):
+  res = api.get_mapping(index = param)
+  print(json.dumps(res, indent = 2, sort_keys = False))
+
+def get_settings(api, param):
+  res = api.get_settings(index = param)
+  print(json.dumps(res, indent = 2, sort_keys = False))
+
 def open(api, param):
   res = api.open(index = param)
   print(json.dumps(res, indent = 2, sort_keys = False))
@@ -49,6 +57,10 @@ elif args.e == "delete":
   delete(obj, args.n)
 elif args.e == "flush":
   flush(obj, args.n)
+elif args.e == "get_mapping":
+  get_mapping(obj, args.n)
+elif args.e == "get_settings":
+  get_settings(obj, args.n)
 elif args.e == "open":
   open(obj, args.n)
 elif args.e == "stats":
