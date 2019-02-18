@@ -26,6 +26,10 @@ def delete(api, param):
   res = api.delete(index = param)
   print(json.dumps(res, indent = 2, sort_keys = False))
 
+def exists(api, param):
+  res = api.exists(index = param)
+  print(json.dumps(res, indent = 2, sort_keys = False))
+
 def flush(api, param):
   res = api.flush(index = param)
   print(json.dumps(res, indent = 2, sort_keys = False))
@@ -55,6 +59,8 @@ elif args.e == "create":
   create(obj, args.n)
 elif args.e == "delete":
   delete(obj, args.n)
+elif args.e == "exists":
+  exists(obj, args.n)
 elif args.e == "flush":
   flush(obj, args.n)
 elif args.e == "get_mapping":
